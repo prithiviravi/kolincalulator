@@ -1,0 +1,301 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/kolin.css' %}" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'IMG/favicon-01.png' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap" rel="stylesheet">
+    <title>Kolin plus calculator</title>
+</head>
+<body>
+    <style>
+        p {font-size: 18px; padding-left: 12.5%; margin-top: 7%; margin-bottom: -5%; max-width: 60%;}
+        span{
+            color:  #ffb32c;
+            font-size: 22px;
+            align-items: flex-end;
+            
+        }
+        .wrapper{
+            max-width: 700px;
+            width: 100% auto;
+            background: #fff;
+            margin: 2px auto;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+            padding: 40px;
+            margin-top: -5%;
+            top:0;
+            
+          }
+        body{
+        
+            background-color: #479E55;
+        }
+        .wrapper1{
+            max-width: 700px;
+            width: 100% auto;
+            background: #fff;
+            margin: 0px auto;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+            padding: 15px;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            background: #ffb32c;
+            text-align: center;
+            border-bottom-right-radius: 10%;
+            border-bottom-left-radius: 10%;            
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        .hide{
+            visibility: hidden;
+        }
+        .ov{
+            color: #479E55;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .img{
+            display: block;
+        }
+        .imgContainer{
+            float:left;
+            margin-left: 10%;
+        }
+        .imgContainer1{
+            float:right;    
+            margin-right: 10%;
+        }
+        h1{
+        font-family: 'Ubuntu', sans-serif;
+        }
+        .wrap3{
+            display: block;
+            padding-bottom: -1px;
+        }
+        .wrap32{
+            float: right;
+            margin-right: 5%;
+            padding-left: 70%;
+        }
+        .wrap31{
+            float: left;
+            margin-left: 9%;
+            padding-right: 60%;
+        }
+
+    </style>
+    <div class ="wrapper1">
+        <h1>INGREDIENTS</h1>
+        <br>
+        <div class="wrap text">
+            <span id = "per" class="ov"> 0% </span>
+        </div>
+        <div>
+            {% for message in messages %}
+            <h4>{{message}}</h4>
+            {% endfor %}
+        </div> 
+    </div>
+    <div class="wrapper">
+        <br>
+        <br>
+        <form action="calculate" method="POST">
+        {% csrf_token %} 
+        <p>Maize:<span id="maize"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange1" class="slider" name="Maize"> 
+        </div>
+        <p>Jowar: <span id="Jowar"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange2" class="slider" name="Jowar"> 
+        </div>
+        <p>Bajara: <span id="Bajara"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange3" class="slider" name="Bajara"> 
+        </div>
+        <p>Rice (broken): <span id="Rice(broken)"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange4" class="slider" name="Ricebroken"> 
+        </div>
+        <p>Rice bran*: <span id="Ricebran*"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange5" class="slider" name="Ricebran"> 
+        </div>
+
+        <p>Wheat: <span id="Wheat"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange6" class="slider" name="Wheat"> 
+        </div>
+
+        <p>Barley: <span id="Barley"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange7" class="slider" name="Barley"> 
+        </div>
+
+        <p>Rice polish: <span id="Ricepolish"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange8" class="slider" name="Ricepolish"> 
+        </div>
+
+        <p>Bakery by -product*: <span id="Bakeryby-product*"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange9" class="slider" name="Bakerybyproduct"> 
+        </div>
+
+        <p>Soy Extract : <span id="SoyExtract"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange10" class="slider" name="Soyextract"> 
+        </div>
+
+        <p>Groundnut Extract (GNC) : <span id="GroundnutExtract(GNC)"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange11" class="slider" name="Groundnutextract"> 
+        </div>
+
+        <p>Rapeseed Extract : <span id="RapeseedExtract"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange12" class="slider" name="Rapeseedextract"> 
+        </div>
+
+        <p>Sunflower Extract : <span id="SunflowerExtract"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange13" class="slider" name="Sunflowerextract"> 
+        </div>
+
+        <p>Soyabean meal* : <span id="Soyabeanmeal*"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange14" class="slider" name="Soyabeanmeal"> 
+        </div>
+
+        <p>Sesame Extract  : <span id="SesameExtract"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange15" class="slider" name="Sesameextract"> 
+        </div>
+
+        <p>Full-fat soybeans*: <span id="Full-fatsoybeans*"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange16" class="slider" name="Fullfatsoybeans"> 
+        </div>
+
+        <p>Cotton seed meal*: <span id="Cottonseedmeal*"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange17" class="slider" name="Cottonseedmeal"> 
+        </div>
+
+        <p>Maize Gluten 42: <span id="MaizeGluten42"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange18" class="slider" name="Maizegluten42"> 
+        </div>
+
+        <p>Maize Gluten 60: <span id="MaizeGluten60"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange19" class="slider" name="MaizeGluten60"> 
+        </div>
+
+        <p>Peanut meal*: <span id="Peanutmeal*"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange20" class="slider" name="Peanutmeal"> 
+        </div>
+
+        <p>Sesame meal*: <span id="Sesamemeal*"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange21" class="slider" name="Sesamemeal"> 
+        </div>
+
+
+        <p>Sunflower meal*: <span id="Sunflowermeal*"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange22" class="slider" name="Sunflowermeal"> 
+        </div>
+
+        <p>Fish meal*: <span id="Fishmeal*"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange23" class="slider" name="Fishmeal"> 
+        </div>
+
+        <p>Meat and Bonemeal 50%: <span id="MeatandBonemeal50%"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange24" class="slider" name="MeatandBonemeal50"> 
+        </div>
+
+        <p>Poultry by- product meal*: <span id="Poultryby-productmeal*"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange25" class="slider" name="Poultrybyproductmeal"> 
+        </div>
+
+        <p>Feather's Meal^: <span id="Feather'sMeal^"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange26" class="slider" name="Feathersmeal"> 
+        </div>
+
+        <p>Ricebran Doc: <span id="RicebranDoc"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange27" class="slider" name="Ricebrandoc"> 
+        </div>
+
+        <p>Wheat Bran: <span id="WheatBran"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange28" class="slider" name="Wheatbran"> 
+        </div>
+
+        <p>Salseed Extract : <span id="SalseedExtract"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange29" class="slider" name="Salseedextract"> 
+        </div>
+
+        <p>Molasses: <span id="Molasses"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange30" class="slider" name="Molasses"> 
+        </div>
+
+        <p>Blood^: <span id="Blood^"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange31" class="slider" name="Blood"> 
+        </div>
+
+        <p>Coconut Cocos nucifera^: <span id="CoconutCocosnucifera^"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange32" class="slider" name="CoconutCocosnucifera"> 
+        </div>
+
+        <p>Yeast, Brewer's Saccharo-myces cerevisiae. Dehydrated^ : <span id="Yeast,Brewer'sSaccharo-mycescerevisiae.Dehydrated^"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange33" class="slider" name="Ybsmcd"> 
+        </div>
+        <p>Yeast, Torula torulopsis utilis dehydrated^:<span id="Yeast,Torulatorulopsisutilisdehydrated^"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange34" class="slider" name="YTH"> 
+        </div>
+        <input class="hide" id= "hide" name="bird" value="">
+        <br><br>
+        <div class="img">
+            <div class="imgContainer">
+                <a href="{% url 'index' %}"><img src="{% static 'IMG/Asset 6.png' %}" height="55" width="55" style="float:left"></a>        
+            </div>
+            <div class="imgContainer1">
+                <input type="image" alt="Submit" src="{% static 'IMG/Asset 8.png' %}" height="55" width="55" style="float:left">
+            </div>
+        </div>
+       <br><br>
+        <script>
+            document.getElementById("hide").value=localStorage.getItem("bird1");            
+        </script>
+
+        </form>
+    
+    </div>
+    
+</body>
+
+<script src="{% static 'JS/kolin.js' %}"></script>
+</html>

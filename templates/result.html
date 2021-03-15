@@ -1,0 +1,140 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'IMG/favicon-01.png' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap" rel="stylesheet">    <title>Kolin plus calculator</title>
+</head>
+<body>
+    <style>
+        .wrapper{
+            max-width: 500px;
+            width: 100% auto;
+            background: #fff;
+            margin: 10px auto;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+            padding: 40px;
+            text-align: center;
+            margin-top: 0;
+          }
+        body{
+            background-color: #479E55;
+        }
+        .wrapper1{
+            max-width: 600px;
+            width: 113% auto;
+            background: #ffb32c;
+            margin: -40px ;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+            padding: 20px;
+            text-align: center;
+            padding-right: 16%;
+            border-bottom-left-radius: 10%;
+            border-bottom-right-radius: 10%;
+                  
+        }
+        *{
+            margin: 0.25%;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }   
+        .flex1{
+            display: flex;
+            width: 100%;
+            position: static;
+            padding-left: 18%;
+            margin-bottom: 5%;
+            margin-top: 2%;
+        }
+        .flex21{
+            font-size: 40px;
+            margin-bottom: 3%;
+            
+        }
+        .fine{
+            font-size: 20px;
+            
+        }
+        .fine1{
+            font-size: 30px;
+            font-weight: bolder;
+            
+        }
+        .fine3{
+            font-size: 30px;
+            font-weight:125;
+        }
+        .flex21{
+            margin-bottom: 10%;
+        }
+        .flex22{
+            margin-bottom: 10%;
+        }
+        .dose{
+            font-size: 18px;
+            color: black;
+            font-weight: normal;
+        }
+        .img{
+            display: block;
+        }
+        .imgContainer{
+            float:left;
+            margin-left: 10%;
+        }
+        .imgContainer1{
+            float:right;    
+            margin-right: 10%;
+            
+        }
+        h1{
+            font-family: 'Ubuntu', sans-serif;
+            margin-left: 15%;
+        }
+    </style>
+    <div class="wrapper">
+        <div class ="wrapper1">
+            <h1>CHOLINE CONTENT</h1>
+        </div>
+        <br><br>
+        <div class= "flex1">
+            <div class ="flex11">
+                <p class="fine3">{{Result|floatformat:0}}<span class="dose">g/ton</span></p>
+                <p class="fine"> Choline in feed </p>
+            </div>
+            <div class="flex12">
+                <p class="fine3">{{Cholinerequired|floatformat:0}}<span class="dose">g/ton</span></p>
+                <p class="fine">Choline Required</p>
+            </div>
+        </div>
+        <div class="flex2">
+            <div class="flex21">
+                <p class="fine3">{{Cholinedefeciency|floatformat:1}}<span class="dose">g/ton</span></p>
+                <p class="fine">Choline defeciency</p>
+            </div>
+            <div class="flex22">
+                <p class="fine1" style="color: red;">{{cholinecloridedose|floatformat:1}}<span class="dose" style="font-size: 18px">g/ton</span></p>
+                <p class="fine">Choline chloride 60% Dose</p>
+            </div>
+        </div>
+        <div class="flex3">
+            <p class="fine1" style="color: darkgreen">{{KD|floatformat:1}}<span class="dose" style="color: black;">g/ton</span> </p>
+            <p class="fine">KOLIN PLUS DOSE</p>
+        </div>
+        <div class="img">
+            <div class="imgContainer">
+                <a href="{% url 'Breed' %}"><img src="{% static 'IMG/Asset 9.png' %}" height="50" width="50" style="float:left"></a>         
+            </div>
+            <div class="imgContainer1">
+                <a href="{% url 'index' %}"><img src="{% static 'IMG/Asset 6.png' %}" height="50" width="50" style="float:left"></a>
+            </div>
+        </div>
+        <br><br><br>                       
+    </div>
+</body>
+</html>
