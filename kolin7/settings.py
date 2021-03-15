@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-import django_heroku
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +26,7 @@ SECRET_KEY = '_psohy3#+a6%0yp5#0&t6wdt^n^zrf&4m=8b*)na#_1@@#337o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =False
 
-ALLOWED_HOSTS = ['127.0.0.1','kolinplusmatrixcalculator.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -126,4 +126,3 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT= os.path.join(BASE_DIR, "assets")
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
