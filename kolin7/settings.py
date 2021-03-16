@@ -27,7 +27,7 @@ SECRET_KEY = '_psohy3#+a6%0yp5#0&t6wdt^n^zrf&4m=8b*)na#_1@@#337o'
 DEBUG =False
 
 ALLOWED_HOSTS = ['127.0.0.1','kolinplusmatrixcalculator.herokuapp.com']
-django_heroku.settings(locals())
+
 
 # Application definition
 
