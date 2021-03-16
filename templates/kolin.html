@@ -121,7 +121,7 @@
         <br><br><br><br><br>
         <form action="Breed">
             <div class="slc1">
-                <select class="Select1" id="slct1" name="slct1" onclick="populate(this.id,'slct2')" required>
+                <select class="Select1" id="slct1" name="slct1" onselect="populate(this.id,'slct2')" required>
                     <option value=""></option>
                     <option value="Broiler">Broiler</option>
                     <option value="Layer">Layer</option>
@@ -130,7 +130,7 @@
             <br>
             <p class="txt1">SELECT BREED</p>
             <div class="select2">
-                <select id = "slct2" name="slct2" placeholder="Select Bird" class="Select1" onclick="populate1(this.id,'slct3')" value="" required>                  
+                <select id = "slct2" name="slct2" placeholder="Select Bird" class="Select1" onselect="populate1(this.id,'slct3')" value="" required>                  
                 </select>   
                     <br><br>
                 </select>
