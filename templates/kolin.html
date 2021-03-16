@@ -138,6 +138,66 @@
             <input type="image" alt="Submit" onclick="passval()" src="{% static 'IMG/Asset 8.png' %}" width="50px" height="50px" style="margin-left: 48%;">
         </form>
     </div>
+    <script>
+        function populate(s1,s2){
+            var s1 =document.getElementById(s1)
+            var s2 =document.getElementById(s2)
+            s2.innerHTML = "";
+          
+            if(s1.value == "Broiler"){
+                var optionArray = ["|","VENCOBB430|VENCOBB430", "ROSS 308|ROSS 308", "HUBBARD|HUBBARD"]
+              } 
+            else if(s1.value == "Layer"){
+                var optionArray = ["|","BV 300|BV 300", "HY-LINE BROWN|HY-LINE BROWN", "BOVAN|BOVAN"]
+            }
+          
+            for(var option in optionArray){
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option");
+                newOption.innerHTML=  pair[0]
+                newOption.value = pair[1]
+                s2.options.add(newOption)
+            }
+          }
+          
+          function populate1(s2,s3){
+            var s2 =document.getElementById(s2)
+            var s3 =document.getElementById(s3)
+            s3.innerHTML = "";
+          
+            if(s2.value == "VENCOBB430"){
+                var optionArray = ["Prestarter|Prestarter", "Starter|Starter", "Finisher|Finisher"];
+            }
+            else if(s2.value == "HUBBARD"){
+              var optionArray = ["Starter(0-7)|Starter(0-7)", "Grower(8-20)|Grower(8-20)", "Finisher 1(21-30)|Finisher 1(21-30)", "Finisher 2(31-culling)|Finisher 2(31-culling)"];
+            }
+           
+            else if(s2.value == "ROSS 308"){
+                var optionArray = ["Starter(0-10)|Starter(0-10)", "Grower 1(11-20)|Grower 1(11-20)", "Grower 2(21-30)|Grower 2(21-30)", "Finisher 1(31-40)|Finisher 1(31-40)", "Finisher 2(41-Market)|Finisher 2(41-Market)"];
+            }
+          
+            else if(s2.value == "BV 300"){
+                var optionArray = ["Chick|Chick", "Grower|Grower", "Prelay Feed ( 16-18 WK)|Prelay Feed ( 16-18 WK)", "Phase 1 (19-40WK)|Phase 1 (19-40WK)", "Phase 2 ( 41-60WK)|Phase 2 ( 41-60WK)", "Phase 3 (61 to Liquidation)|Phase 3 (61 to Liquidation)" ];
+            }
+          
+            else if(s2.value == "HY-LINE BROWN"){
+                var optionArray = ["Starter 1 (0-6 WK)|Starter 1 (0-6 WK)", "Grower (6-11WK)|Grower (6-11WK)", "Developer (12-15 WK)|Developer (12-15 WK)", "Prelay (15-17 WK)|Prelay (15-17 WK)", "Layer 2 (36-46 WK)|Layer 2 (36-46 WK)", "Layer 3 (48-61 WK)|Layer 3 (48-61 WK)", "Layer 4 (61-72WK)|Layer 4 (61-72WK)", "Layer 5 ( 72WK - Liquidation)|Layer 5 ( 72WK - Liquidation)"];
+            }
+          
+            else if(s2.value == "BOVAN"){   
+                var optionArray = ["Starter ( 0-4WK) |Starter ( 0-4WK)", "Grower (4-10 WK)|Grower (4-10 WK)", "Pullet ( 10-16WK) |Pullet ( 10-16WK)", "Prelay ( 16-18 WK)|Prelay ( 16-18 WK)", "Layer 1( 18-20 WK)|Layer 1( 18-20 WK)", "Layer 2( 28-58 WK)|Layer 2( 28-58 WK)", "Layer 3( 50wk- Liquidation)|Layer 3( 50wk- Liquidation)"];
+            }
+            
+            
+            for(var option in optionArray){
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option");
+                newOption.innerHTML=  pair[0]
+                newOption.value = pair[1]
+                s3.options.add(newOption)
+            }
+          }
+    </script>
 </body>
 </html>
 
