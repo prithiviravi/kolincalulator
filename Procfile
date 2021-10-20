@@ -1,1 +1,1 @@
-web: gunicorn kolin7.wsgi --log-file -
+web: gunicorn kolin14.wsgi --log-file -
