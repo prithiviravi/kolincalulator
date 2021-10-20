@@ -24,7 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_psohy3#+a6%0yp5#0&t6wdt^n^zrf&4m=8b*)na#_1@@#337o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =False
+DEBUG =True
+
 
 ALLOWED_HOSTS = ['127.0.0.1','kolinplusmatrixcalculator.herokuapp.com','kolinplusmatrixcalcus.herokuapp.com','kolinpluscalcus.herokuapp.com']
 
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'kolin8'
+    'kolin12'
 ]
 
 MIDDLEWARE = [
@@ -52,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'kolin7.urls'
+ROOT_URLCONF = 'kolin11.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'kolin7.wsgi.application'
+WSGI_APPLICATION = 'kolin11.wsgi.application'
 
 
 # Database

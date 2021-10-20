@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class Kolin8Config(AppConfig):
-    name = 'kolin8'
+class Kolin12Config(AppConfig):
+    name = 'kolin12'
