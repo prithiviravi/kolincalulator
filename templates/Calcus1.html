@@ -160,15 +160,15 @@
         <br>
         <form action="calculate" method="POST">
         {% csrf_token %} 
-        <p>Maize:<span id="maize"></span></p>
+        <p>Maize(Corn 11.1% protein):<span id="maize"></span></p>
         <div class="slidecontainer">
             <input type="range" min="0" max="100" value="0" id="myrange1" class="slider" name="Maize"> 
         </div>
-        <p>Jowar: <span id="Jowar"></span></p>
+        <p>Jowar(sorghum 10% protein): <span id="Jowar"></span></p>
         <div class="slidecontainer">
             <input type="range" min="0" max="100" value="0" id="myrange2" class="slider" name="Jowar"> 
         </div>
-        <p>Bajara: <span id="Bajara"></span></p>
+        <p>Bajara(Pearl millet 10% protein) <span id="Bajara"></span></p>
         <div class="slidecontainer">
             <input type="range" min="0" max="100" value="0" id="myrange3" class="slider" name="Bajara"> 
         </div>
@@ -221,7 +221,7 @@
             <input type="range" min="0" max="100" value="0" id="myrange13" class="slider" name="Sunflowerextract"> 
         </div>
 
-        <p>Soyabean meal* : <span id="Soyabeanmeal*"></span></p>
+        <p>Soyabean meal*(40-49% protein) : <span id="Soyabeanmeal*"></span></p>
         <div class="slidecontainer">
             <input type="range" min="0" max="100" value="0" id="myrange14" class="slider" name="Soyabeanmeal"> 
         </div>
@@ -305,6 +305,21 @@
         <p>Molasses: <span id="Molasses"></span></p>
         <div class="slidecontainer">
             <input type="range" min="0" max="100" value="0" id="myrange30" class="slider" name="Molasses"> 
+        </div>
+
+        <p>Meat and Bone meal(56.8% protein): <span id="MeatandBonemeal"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange35" class="slider" name="MeatandBonemeal"> 
+        </div>
+
+        <p>Feather meal:<span id="Feathermeal"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange36" class="slider" name="Feathermeal"> 
+        </div>
+
+        <p>Pork meal:<span id="Porkmeal"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" id="myrange37" class="slider" name="Porkmeal"> 
         </div>
 
         <p>Blood^: <span id="Blood^"></span></p>
@@ -692,13 +707,42 @@
             var slider34 = document.getElementById("myrange34")
             var output34 = document.getElementById("Yeast,Torulatorulopsisutilisdehydrated^")
 
-            output34.innerHTML= slider33.value + "%";
+            output34.innerHTML= slider34.value + "%";
 
             slider34.oninput = function(){
             output34.innerHTML= this.value + "%";
             updatevalue();
             } 
 
+            var slider35 = document.getElementById("myrange35")
+            var output35 = document.getElementById("MeatandBonemeal")
+
+            output35.innerHTML= slider35.value + "%";
+
+            slider35.oninput = function(){
+            output35.innerHTML= this.value + "%";
+            updatevalue();
+            } 
+
+            var slider36 = document.getElementById("myrange36")
+            var output36 = document.getElementById("Feathermeal")
+
+            output36.innerHTML= slider36.value + "%";
+
+            slider36.oninput = function(){
+            output36.innerHTML= this.value + "%";
+            updatevalue();
+            }
+
+            var slider37 = document.getElementById("myrange37")
+            var output37 = document.getElementById("Porkmeal")
+
+            output37.innerHTML= slider37.value + "%";
+
+            slider37.oninput = function(){
+            output37.innerHTML= this.value + "%";
+            updatevalue();
+            }
 
             function updatevalue(){
             var perct = parseInt(slider1.value) + parseInt(slider2.value)+ parseInt(slider3.value) + parseInt(slider4.value)+ parseInt(slider5.value)+ parseInt(slider6.value) + parseInt(slider7.value) + parseInt(slider8.value) + parseInt(slider9.value) + parseInt(slider10.value)+ parseInt(slider11.value) + parseInt(slider12.value) + parseInt(slider13.value) + parseInt(slider14.value)+ parseInt(slider15.value) + parseInt(slider16.value)+ parseInt(slider17.value)+ parseInt(slider18.value) + parseInt(slider19.value)+ parseInt(slider20.value)+ parseInt(slider21.value) + parseInt(slider22.value)+ parseInt(slider23.value)+ parseInt(slider24.value)+ parseInt(slider25.value)+ parseInt(slider26.value)+ parseInt(slider27.value)+parseInt(slider28.value)+ parseInt(slider29.value)+ parseInt(slider30.value)+ parseInt(slider31.value)+ parseInt(slider32.value)+ parseInt(slider33.value)+ parseInt(slider34.value);

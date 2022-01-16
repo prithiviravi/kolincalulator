@@ -152,10 +152,10 @@
             s2.innerHTML = "";
           
             if(s1.value == "Broiler"){
-                var optionArray = ["|","VENCOBB430|VENCOBB430", "ROSS 308|ROSS 308", "HUBBARD|HUBBARD"]
+                var optionArray = ["|","VENCOBB430|VENCOBB430", "ROSS 308|ROSS 308", "HUBBARD|HUBBARD","COBB 500|COBB 500"]
               } 
             else if(s1.value == "Layer"){
-                var optionArray = ["|","BV 300|BV 300", "HY-LINE BROWN|HY-LINE BROWN", "BOVAN|BOVAN"]
+                var optionArray = ["|","BV 300|BV 300", "HY-LINE BROWN|HY-LINE BROWN", "BOVAN|BOVAN","Issa Brown|Issa Brown"]
             }
           
             for(var option in optionArray){
@@ -182,10 +182,17 @@
             else if(s2.value == "ROSS 308"){
                 var optionArray = ["Starter(0-10)|Starter(0-10)", "Grower 1(11-20)|Grower 1(11-20)", "Grower 2(21-30)|Grower 2(21-30)", "Finisher 1(31-40)|Finisher 1(31-40)", "Finisher 2(41-Market)|Finisher 2(41-Market)"];
             }
-          
-            else if(s2.value == "BV 300"){
-                var optionArray = ["Chick|Chick", "Grower|Grower", "Prelay Feed ( 16-18 WK)|Prelay Feed ( 16-18 WK)", "Phase 1 (19-40WK)|Phase 1 (19-40WK)", "Phase 2 ( 41-60WK)|Phase 2 ( 41-60WK)", "Phase 3 (61 to Liquidation)|Phase 3 (61 to Liquidation)" ];
+            
+            else if(s2.value == "COBB 500"){
+                var optionArray = ["Starter(0-10)|Starter(0-10)cobb", "Grower(11-22)|Grower(11-22)", "Finisher 1(23-42)|Finisher 1(23-42)", "Finisher 2(42-Market)|Finisher 2(42-Market)"];
             }
+
+            else if(s2.value == "Issa Brown"){
+                var optionArray = ["Starter(0-10)|Starterissa(0-10)",];
+            }
+            else if(s2.value == "BV 300"){
+              var optionArray = ["Chick|Chick", "Grower|Grower", "Prelay Feed ( 16-18 WK)|Prelay Feed ( 16-18 WK)", "Phase 1 (19-40WK)|Phase 1 (19-40WK)", "Phase 2 ( 41-60WK)|Phase 2 ( 41-60WK)", "Phase 3 (61 to Liquidation)|Phase 3 (61 to Liquidation)" ];
+           }
           
             else if(s2.value == "HY-LINE BROWN"){
                 var optionArray = ["Starter 1 (0-6 WK)|Starter 1 (0-6 WK)", "Grower (6-11WK)|Grower (6-11WK)", "Developer (12-15 WK)|Developer (12-15 WK)", "Prelay (15-17 WK)|Prelay (15-17 WK)", "Layer 2 (36-46 WK)|Layer 2 (36-46 WK)", "Layer 3 (48-61 WK)|Layer 3 (48-61 WK)", "Layer 4 (61-72WK)|Layer 4 (61-72WK)", "Layer 5 ( 72WK - Liquidation)|Layer 5 ( 72WK - Liquidation)"];

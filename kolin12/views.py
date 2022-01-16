@@ -92,10 +92,25 @@ def calculate(request):
 
     elif(Bird=="Phase 2 ( 41-60WK)" or Bird=="Phase 3 (61 to Liquidation)"):
         Cholinerequired=1100
+    
+    elif(Bird=="Starter(0-10)cobb"):
+        Cholinerequired=500
+
+    elif(Bird=="Grower(11-22)"):
+        Cholinerequired=400
+    
+    elif(Bird=="Grower(11-22)"):
+        Cholinerequired=400
+    
+    elif(Bird=="Finisher 1(23-42)" or Bird=="Finisher 2(42-Market)"):
+        Cholinerequired=350
+    
+    elif(Bird=="Starterissa(0-10)"):
+        Cholinerequired=1600
 
 
     #cp values
-    MaizeCP = (Maize/100) * 506  
+    MaizeCP = (Maize/100) * 620  
     JowarCP = (Jowar/100) * 678
     BajaraCP =(Bajara/100) * 789
     RicebrokenCP = (Ricebroken/100) * 792
