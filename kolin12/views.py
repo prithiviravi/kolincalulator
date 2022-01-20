@@ -155,7 +155,7 @@ def calculate(request):
 
     Cholinechloridedose = Cholinedefeciency/0.45 
     
-    KOLINDOSE = Cholinedefeciency/4
+    KOLINDOSE = Cholinechloridedose/4
 
     if(TotalValue <= 100):
         return render(request,'result.html', {'Result':result, 'Cholinerequired':Cholinerequired, 'Cholinedefeciency':Cholinedefeciency, 'cholinecloridedose':Cholinechloridedose, 'KD':KOLINDOSE})    
