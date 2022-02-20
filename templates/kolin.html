@@ -111,12 +111,12 @@
             <div class="imgContainer">
                 <img src="{% static 'IMG/Asset 5.png' %}" height="75" width="65" style="float:left">
                 <br>
-                <p class="layer">Broiler</p>          
+                <!-- <p class="layer">Broiler</p>           -->
             </div>
             <div class="imgContainer1">
                 <img src="{% static 'IMG/Asset 4.png' %}" height="75" width="65" style="float:left">
                 <br>
-                <p class = "layer" style="padding-right:30">Layer</p>
+                <!-- <p class = "layer" style="padding-right:30">Layer</p> -->
             </div>
         </div>
         <br><br><br><br><br>
@@ -126,6 +126,7 @@
                     <option value=""></option>
                     <option value="Broiler">Broiler</option>
                     <option value="Layer">Layer</option>
+                    <option value="Swine">Swine</option>
                 </select>
             </div>
             <br>
@@ -137,7 +138,7 @@
                 </select>
             </div>
             <br>
-            <p class="txt1">SELECT BIRD'S PHASE</p>
+            <p class="txt1">SELECT PHASE</p>
             <div class="select3"> 
                 <select id = "slct3" class="Select1" name="slct3" required></select>
                 <br><br>
@@ -154,8 +155,12 @@
             if(s1.value == "Broiler"){
                 var optionArray = ["|","VENCOBB430|VENCOBB430", "ROSS 308|ROSS 308", "HUBBARD|HUBBARD","COBB 500|COBB 500"]
               } 
+            
             else if(s1.value == "Layer"){
                 var optionArray = ["|","BV 300|BV 300", "HY-LINE BROWN|HY-LINE BROWN", "BOVAN|BOVAN"]
+            }
+            else if(s1.value == "Swine"){
+                var optionArray = ["|","Gestating Gilts/Sows|Gestating Gilts/Sows", "Developing Gilt|Developing Gilt", "Mature Boars|Mature Boars"]
             }
           
             for(var option in optionArray){
@@ -202,7 +207,19 @@
                 var optionArray = ["Starter ( 0-4WK) |Starter ( 0-4WK)", "Grower (4-10 WK)|Grower (4-10 WK)", "Pullet ( 10-16WK) |Pullet ( 10-16WK)", "Prelay ( 16-18 WK)|Prelay ( 16-18 WK)", "Layer 1( 18-20 WK)|Layer 1( 18-20 WK)", "Layer 2( 28-58 WK)|Layer 2( 28-58 WK)", "Layer 3( 50wk- Liquidation)|Layer 3( 50wk- Liquidation)"];
             }
             
+            else if(s2.value == "Gestating Gilts/Sows"){   
+                var optionArray = ["Gestating Gilts|Gestating Gilts"];
+            }
             
+            else if(s2.value == "Developing Gilt"){   
+                var optionArray = ["Developing Gilt|Developing Gilt"];
+            }
+
+            else if(s2.value == "Mature Boars"){   
+                var optionArray = ["Mature Boars|Mature Boars"];
+            }
+
+
             for(var option in optionArray){
                 var pair = optionArray[option].split("|");
                 var newOption = document.createElement("option");

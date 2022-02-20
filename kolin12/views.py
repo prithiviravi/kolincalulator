@@ -108,6 +108,9 @@ def calculate(request):
     elif(Bird=="Starterissa(0-10)"):
         Cholinerequired=1600
 
+    elif(Bird=="Gestating Gilts" or Bird=="Developing Gilt" or Bird=="Mature Boars"):
+        Cholinerequired=300
+
 
     #cp values
     MaizeCP = (Maize/100) * 620  
